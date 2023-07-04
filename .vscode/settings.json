@@ -7,6 +7,12 @@
     "${3rd}/love2d/library"
   ],
   "Lua.diagnostics.globals": [
-    "class_commons"
+    "class_commons",
+    "push",
+    "gFonts",
+    "gTextures",
+    "gSounds",
+    "gStateMachine",
+    "displayFPS"
   ]
 }

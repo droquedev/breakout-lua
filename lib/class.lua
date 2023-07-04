@@ -23,8 +23,7 @@ LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
 OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN
 THE SOFTWARE.
 ]]
-   --
-local common = {}
+--
 
 local function include_helper(to, from, seen)
 	if from == nil then
@@ -62,7 +61,7 @@ local function new(class)
 	local inc = class.__includes or {}
 	if getmetatable(inc) then inc = { inc } end
 
-	for _, other in ipairs(inc) do
+	for k, other in ipairs(inc) do
 		if type(other) == "string" then
 			other = _G[other]
 		end
@@ -100,4 +99,4 @@ end
 
 -- the module
 return setmetatable({ new = new, include = include, clone = clone },
-	{ __call = function(_, ...) return new(...) end })
+	{ __call = function(k, ...) return new(...) end })
